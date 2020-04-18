@@ -12,7 +12,10 @@ import {
 import UserLogin from "./containers/login.container";
 import Pokemons from "./containers/pokemons.container";
 import Register from "./containers/register.container";
-import LoggedInComponent from './components/loggedin.component'
+import LoggedInComponent from './components/loggedin.component';
+import Urls from "./containers/urls.container";
+import Url from "./containers/url.container";
+import UrlRouter from "./containers/urlRouter.container";
 
 const userStore = createStore(reducers, applyMiddleware(thunkMiddleware));
 
@@ -26,7 +29,11 @@ ReactDOM.render(
                 <Route path="/login" component={UserLogin}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/pokemon" component={LoggedInComponent(Pokemons)}/>
-                <Redirect exact from="/" to="login"/>
+                <Route path="/urls" component={Urls}/>
+                <Route exact path={"/url/:shortUrl"} component={UrlRouter}/>
+                <Route path={"/url/:shortUrl/edit"} component={Url}/>
+
+                <Redirect exact from="/" to="urls"/>
             </Switch>
         </BrowserRouter>
     </Provider>,

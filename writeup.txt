@@ -1,0 +1,45 @@
+1. Describe your data model and schema.  How did Mongoose make this easy or hard to express?
+    Example:
+    UrlSchema: {
+        urlModel1 = {
+            longUrl: https://www.google.com
+            shortUrl: https://localhost:3000/g
+        },
+        urlModel2 = {
+                    longUrl: https://www.youtube.com
+                    shortUrl: https://localhost:3000/g=t
+                },
+        ...
+
+    }
+
+
+
+    Mongoose is easy to use. I simply built a schema and call the built-in CRUD functions to operate the database.
+
+2. Have you worked with databases before?  How was this different or similar?  If you’ve not worked with databases before, describe your challenges and ease in representing this data.
+    Yes. The persistence frameworks are pretty much the same. We first connect to the database and the table, and call the
+    built-in CRUD functions(maybe write up some querys if needed).
+
+3. Respond to some of the questions or considerations from the Error Handling and Complications section of the assignment.
+    a. What if the same URL is submitted by multiple users?  Will you return a unique URL each time, or an already existing URL?
+    b. What if a user requests a branded URL that already exists.  How will you
+    c. How will you structure your data in MongoDB?  Will branded and unbranded URLs be stored and/or represented differently?
+    d. How will you handle the case if a user were to supply an invalid URL, or a string that isn’t a URL at all?
+    e. After a user deletes, what should you do?
+    f. What if users try to edit a URL that doesn’t exist?
+
+
+4. Given more time, what additional features, functionality or design changes would you make
+    Add more UI.
+    Add timestamp.
+    Add more complications.
+    Add filters for harmful contents.
+    Add redux.
+
+5. What assumptions, if any, did you make on this assignment?
+    Suppose we don't need to implement the whole redux stuff with a bunch of status. (This saves a lot of time)
+    Suppose we only need to store short url and long url.
+    Suppose short url is always shorter.
+    Suppose uuid is enough to solve the conflict problem.
+    Suppose short url has nothing to do with the original url.
