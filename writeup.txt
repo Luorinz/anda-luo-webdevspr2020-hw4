@@ -23,11 +23,30 @@
 
 3. Respond to some of the questions or considerations from the Error Handling and Complications section of the assignment.
     a. What if the same URL is submitted by multiple users?  Will you return a unique URL each time, or an already existing URL?
+        Only accept the first duplicated URL. When user gives us a URL, we first check if there's a duplicate one. The operation will be rejected if duplicated.
+
     b. What if a user requests a branded URL that already exists.  How will you
+        If a branded URL already exists, reject the request.
+
     c. How will you structure your data in MongoDB?  Will branded and unbranded URLs be stored and/or represented differently?
+        They are stored in the same record. If it's not branded, we will give it a UUID as branded url.
+        urlModel1 = {
+            longUrl: https://www.google.com
+            shortUrl: https://localhost:3000/g
+        },
+
     d. How will you handle the case if a user were to supply an invalid URL, or a string that isn’t a URL at all?
+
+        I would use regex to make sure that it's verbally a valid URL. If a URL is not accessible, for example it returns
+        404, then I'll still approve the URL shortening request, but set a time limit to that.
+
     e. After a user deletes, what should you do?
+
+        Delete the record in the database.
+
     f. What if users try to edit a URL that doesn’t exist?
+
+        Check if the url exists first, then do the update operation.
 
 
 4. Given more time, what additional features, functionality or design changes would you make
