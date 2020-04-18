@@ -1,5 +1,4 @@
 const Schema = require('mongoose').Schema;
-const bcrypt = require('bcryptjs');
 
 const UrlSchema = new Schema({
     longUrl: {type: String, index: true},
